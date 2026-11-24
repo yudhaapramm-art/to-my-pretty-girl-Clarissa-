@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f8eee9">
+<title>Untuk Icha, dari aku</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap');
+:root{--ink:#493b3b;--muted:#8c7773;--rose:#c77e83;--paper:#fffaf4;--pink:#f4dadd;--line:#eadbd2}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;color:var(--ink);font-family:'DM Sans',sans-serif;background:radial-gradient(circle at 15% 15%,#f9dfe1 0,transparent 28%),radial-gradient(circle at 85% 80%,#eadfd4 0,transparent 30%),#f6eee8;overflow-x:hidden}
+button{font:inherit}
+.wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:28px 16px;position:relative}
+.glow{position:fixed;inset:0;pointer-events:none;background:linear-gradient(120deg,transparent 35%,#fff8 50%,transparent 65%);transform:translateX(-100%);animation:shine 8s ease-in-out infinite}
+@keyframes shine{0%,65%{transform:translateX(-100%)}90%,100%{transform:translateX(100%)}}
+.float{position:fixed;bottom:-35px;left:var(--x);font-size:var(--s);opacity:0;pointer-events:none;animation:rise var(--d) linear infinite;animation-delay:var(--delay)}
+@keyframes rise{0%{transform:translateY(0) rotate(0);opacity:0}12%{opacity:.6}85%{opacity:.45}100%{transform:translateY(-115vh) rotate(25deg);opacity:0}}
+.book{width:min(100%,520px);position:relative}
+.topline{text-align:center;color:#9d8580;font-size:11px;letter-spacing:3px;text-transform:uppercase;margin-bottom:14px}
+.card{position:relative;background:var(--paper);border:1px solid #eadbd2;border-radius:9px;padding:clamp(24px,6vw,42px);min-height:570px;box-shadow:0 18px 55px #78554b20,7px 7px 0 #eadbd2;overflow:hidden}
+.card:before{content:"";position:absolute;inset:10px;border:1px dashed #e8d4ce;border-radius:5px;pointer-events:none}
+.tape{position:absolute;top:14px;left:50%;transform:translateX(-50%) rotate(-3deg);width:92px;height:23px;background:#e9c9c2aa;z-index:2}
+.page{display:none;position:relative;z-index:1;animation:pageIn .65s ease both}
+.page.active{display:block}
+@keyframes pageIn{from{opacity:0;transform:translateY(15px) rotate(-.5deg)}to{opacity:1;transform:translateY(0) rotate(0)}}
+.kicker{text-align:center;color:var(--rose);font-size:11px;letter-spacing:2.5px;text-transform:uppercase;margin:16px 0 14px}
+h1,h2{font-family:'Playfair Display',serif;font-weight:500;text-align:center;line-height:1.18}
+h1{font-size:clamp(34px,9vw,48px);margin:12px 0}
+h2{font-size:clamp(27px,7vw,36px);margin:12px 0 22px}
+.subtitle{text-align:center;color:var(--muted);font-size:14px;line-height:1.8}
+.heart{font-size:42px;text-align:center;display:block;animation:heartbeat 1.8s ease-in-out infinite}
+@keyframes heartbeat{0%,100%{transform:scale(1)}12%{transform:scale(1.13)}22%{transform:scale(1)}35%{transform:scale(1.08)}}
+.rule{width:65px;height:1px;background:#d9a6a5;margin:22px auto}
+.note{font-size:15px;line-height:1.95;color:#5c4b49;min-height:210px;white-space:pre-wrap}
+.note em{color:#b66f77}
+.type-cursor:after{content:"";display:inline-block;width:1px;height:1em;background:#b66f77;margin-left:3px;vertical-align:-2px;animation:blink .8s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+.sticker{position:absolute;font-size:26px;opacity:.8}
+.s1{top:65px;left:22px;transform:rotate(-15deg)}.s2{right:22px;bottom:55px;transform:rotate(12deg)}
+.quote{text-align:center;font-family:'Playfair Display',serif;font-style:italic;color:#9a6b6c;font-size:19px;line-height:1.6;padding:12px 4px}
+.actions{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:24px;position:relative;z-index:2}
+.btn{border:0;border-radius:30px;padding:12px 19px;background:#b9787e;color:white;box-shadow:0 5px 14px #b9787e35;cursor:pointer;transition:.2s}
+.btn:active{transform:scale(.97)}
+.btn.secondary{background:transparent;color:#9b7775;border:1px solid #dfc5bf;box-shadow:none}
+.progress{text-align:center;color:#a78d87;font-size:12px;letter-spacing:2px}
+.envelope{width:190px;height:130px;margin:28px auto 20px;background:#e8bfc0;position:relative;border-radius:5px;box-shadow:0 10px 25px #9d6e6e30;cursor:pointer}
+.envelope:before{content:"";position:absolute;inset:0;background:#f1d2cf;clip-path:polygon(0 0,100% 0,50% 60%)}
+.envelope:after{content:"♥";position:absolute;left:50%;top:53%;transform:translate(-50%,-50%);color:#b76d78;font-size:30px}
+.envelope span{position:absolute;top:-25px;left:50%;transform:translateX(-50%);font-size:12px;color:#946d6b;white-space:nowrap}
+.small{text-align:center;font-size:12px;color:#a48b84;margin-top:14px}
+.endmark{text-align:center;font-size:30px;letter-spacing:8px;color:#c27c83;margin:20px 0}
+@media(max-height:720px){.card{min-height:520px;padding:24px}.note{min-height:175px}}
+</style>
+</head>
+<body>
+<div class="glow"></div>
+<div class="float" style="--x:8%;--s:18px;--d:13s;--delay:0s">♡</div>
+<div class="float" style="--x:25%;--s:13px;--d:16s;--delay:3s">✦</div>
+<div class="float" style="--x:70%;--s:20px;--d:14s;--delay:1s">♡</div>
+<div class="float" style="--x:88%;--s:14px;--d:18s;--delay:5s">✧</div>
+<main class="wrap"><div class="book">
+  <div class="topline">a little letter, just for you</div>
+  <section class="card">
+    <div class="tape"></div>
+    <span class="sticker s1">✿</span><span class="sticker s2">♡</span>
+
+    <article class="page active" data-page="0">
+      <div class="kicker">dibuka pelan-pelan ya</div>
+      <span class="heart">💌</span>
+      <h1>Untuk Icha</h1>
+      <div class="rule"></div>
+      <p class="subtitle">Ada beberapa hal yang pengin aku sampaikan.<br>Bukan lewat chat singkat, tapi lewat surat kecil ini.</p>
+      <div class="envelope" role="button" tabindex="0" aria-label="Buka surat" onclick="nextPage()"><span>tap untuk membuka</span></div>
+      <p class="small">dari aku, yang masih mau belajar memahami kamu</p>
+      <div class="actions"><span></span><button class="btn" onclick="nextPage()">Buka suratnya ♡</button></div>
+    </article>
+
+    <article class="page" data-page="1">
+      <div class="kicker">01 · aku mau mulai dari sini</div>
+      <h2>Maaf ya, Cha.</h2>
+      <div class="note" data-text="Aku mau minta maaf karena selama ini komunikasi kita belum berjalan seperti yang kita harapkan.\n\nKadang obrolan kita cuma berisi cerita kegiatan hari ini, lalu setelah itu bingung mau ngomong apa lagi. Bahkan saat call, kita sering sama-sama diam. Aku tahu itu bukan hal yang salah, tapi kalau terus-terusan begini, aku ngerti kenapa rasanya jadi hambar.\n\nMaaf karena aku juga belum cukup aktif mencari cara supaya kita punya obrolan yang lebih hidup."></div>
+      <div class="actions"><button class="btn secondary" onclick="prevPage()">Kembali</button><span class="progress">1 / 6</span><button class="btn" onclick="nextPage()">Lanjut →</button></div>
+    </article>
+
+    <article class="page" data-page="2">
+      <div class="kicker">02 · aku dengar kamu</div>
+      <h2>Aku nggak mau menganggap ini sepele.</h2>
+      <div class="note" data-text="Waktu kamu bilang kita sekarang lebih sering diam daripada ngobrol, aku kepikiran. Aku nggak mau cuma jawab 'iya, nanti aku perbaiki', lalu besoknya kita kembali ke kebiasaan yang sama.\n\nAku tahu kamu nggak pernah minta aku buat selalu ada atau ngobrol 24 jam. Aku juga paham kita punya kesibukan masing-masing. Tapi aku nggak mau kesibukan jadi alasan untuk berhenti membangun kedekatan.\n\nDan aku nggak menyalahkan kamu karena sulit mengungkapkan perasaan. Aku juga masih belajar mendengarkan dan memahami apa yang kadang belum sempat kamu ucapkan."></div>
+      <div class="actions"><button class="btn secondary" onclick="prevPage()">Kembali</button><span class="progress">2 / 6</span><button class="btn" onclick="nextPage()">Lanjut →</button></div>
+    </article>
+
+    <article class="page" data-page="3">
+      <div class="kicker">03 · sejujurnya</div>
+      <h2>Aku kangen ngobrol sama kamu.</h2>
+      <div class="note" data-text="Aku kangen cerita hal-hal kecil yang tiba-tiba bisa jadi obrolan panjang. Kangen saling tanya, saling cerita, saling kasih pendapat, sampai nggak sadar waktu sudah malam.\n\nAku nggak berharap setiap hari harus selalu punya cerita seru. Kadang cerita sederhana pun cukup, asal kita sama-sama hadir dan benar-benar tertarik mendengarkan.\n\nAku masih antusias mendengarkan cerita kamu, Cha. Kalau belakangan ini aku terlihat kehabisan bahan obrolan, bukan berarti aku kehilangan rasa ingin tahu tentang kamu."></div>
+      <div class="quote">“Aku ingin tetap mengenal kamu, bahkan lewat cerita-cerita kecil setiap harinya.”</div>
+      <div class="actions"><button class="btn secondary" onclick="prevPage()">Kembali</button><span class="progress">3 / 6</span><button class="btn" onclick="nextPage()">Lanjut →</button></div>
+    </article>
+
+    <article class="page" data-page="4">
+      <div class="kicker">04 · bukan cuma janji</div>
+      <h2>Ada hal yang mau aku usahakan.</h2>
+      <div class="note" data-text="Aku mau mulai lebih inisiatif membuka obrolan, bukan cuma menunggu ada hal yang bisa diceritakan.\n\nAku mau sesekali ngajak kamu bahas hal baru, bertanya lebih dalam tentang hari kamu, atau sekadar berbagi sesuatu yang menurutku bakal bikin kamu tersenyum.\n\nKalau kita sedang call dan mulai kehabisan topik, aku mau mencoba menghidupkan obrolan lagi. Tapi kalau salah satu dari kita memang ingin diam atau istirahat, kita juga boleh bilang dengan nyaman.\n\nYang paling penting, aku mau kita bisa jujur kalau ada yang terasa kurang, tanpa takut dianggap merepotkan."></div>
+      <div class="actions"><button class="btn secondary" onclick="prevPage()">Kembali</button><span class="progress">4 / 6</span><button class="btn" onclick="nextPage()">Lanjut →</button></div>
+    </article>
+
+    <article class="page" data-page="5">
+      <div class="kicker">05 · pelan-pelan saja</div>
+      <h2>Kita nggak harus langsung sempurna.</h2>
+      <div class="note" data-text="Aku tahu hubungan yang baik nggak dibangun dari satu percakapan atau satu permintaan maaf. Pasti perlu waktu, kebiasaan kecil, dan usaha dari kita berdua.\n\nAku juga nggak mau semua tanggung jawab ini terasa seperti ada di pundak kamu atau pundakku sendiri. Kita jalanin sama-sama, ya. Kalau ada yang terasa kurang, bilang. Kalau lagi capek, cerita. Kalau butuh ruang, kita saling kasih tahu.\n\nAku pengin hubungan ini jadi tempat yang nyaman buat kita berdua, bukan sesuatu yang harus dijalani karena takut mengecewakan satu sama lain."></div>
+      <div class="actions"><button class="btn secondary" onclick="prevPage()">Kembali</button><span class="progress">5 / 6</span><button class="btn" onclick="nextPage()">Lanjut →</button></div>
+    </article>
+
+    <article class="page" data-page="6">
+      <div class="kicker">06 · dari aku untuk kamu</div>
+      <span class="heart">💗</span>
+      <h2>Aku masih mau usahain ini.</h2>
+      <div class="note" data-text="Terima kasih karena masih mau ada dan mencoba sejauh ini.\n\nAku nggak bisa janji semuanya akan langsung berubah setelah kamu membaca surat ini. Tapi aku bisa mulai dari hal-hal kecil dan berusaha konsisten, bukan cuma manis di awal.\n\nAku sayang kamu, Cha. Aku senang kita masih punya kesempatan untuk belajar lagi. Semoga ke depannya kita bukan cuma punya waktu bersama, tapi juga punya banyak hal yang ingin kita ceritakan satu sama lain.\n\nPelan-pelan ya, sayang. Aku di sini, dan aku mau terus belajar bareng kamu."></div>
+      <div class="endmark">♡ ✿ ♡</div>
+      <p class="subtitle">with love,<br><strong>Yudha</strong></p>
+      <div class="actions"><button class="btn secondary" onclick="prevPage()">Kembali</button><span class="progress">6 / 6</span><button class="btn" onclick="restart()">Baca lagi ↻</button></div>
+    </article>
+  </section>
+  <p class="small">dibuat dengan tulus, bukan untuk jadi sempurna — tapi untuk mulai lebih baik.</p>
+</div></main>
+<script>
+let current=0, typingTimer=null;
+const pages=[...document.querySelectorAll('.page')];
+function typePage(page){
+  const el=page.querySelector('.note');
+  if(!el)return;
+  clearInterval(typingTimer);
+  const text=el.dataset.text||'';
+  el.textContent='';
+  el.classList.add('type-cursor');
+  let i=0;
+  typingTimer=setInterval(()=>{
+    el.textContent=text.slice(0,i);
+    i++;
+    if(i>text.length){clearInterval(typingTimer);el.classList.remove('type-cursor')}
+  },19);
+}
+function showPage(n){
+  clearInterval(typingTimer);
+  current=Math.max(0,Math.min(n,pages.length-1));
+  pages.forEach((p,i)=>p.classList.toggle('active',i===current));
+  if(current>0)typePage(pages[current]);
+}
+function nextPage(){if(current<pages.length-1)showPage(current+1)}
+function prevPage(){if(current>0)showPage(current-1)}
+function restart(){showPage(0)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')nextPage();if(e.key==='ArrowLeft')prevPage()});
+</script>
+</body>
+</html>
